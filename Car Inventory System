@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+struct strCar {
+	string name;
+	string model;
+	short unsigned int year;
+	float price;
+};
+
+void readCar(strCar& carInfo) {
+	cout << "enter car name : \n";
+	cin >> carInfo.name;
+	cout << "enter car model : \n";
+	cin >> carInfo.model;
+	cout << "enter car manufacture year : \n";
+	cin>>carInfo.year;
+	cout << "enter car price : \n";
+	cin>>carInfo.price;
+	cout << "**********************************************\n";
+}
+void readAllCars(strCar cars[3]) {
+	readCar(cars[0]);
+	readCar(cars[1]);
+	readCar(cars[2]);
+}
+void printCar(strCar carInfo) {
+	cout << "**********************************************\n";
+	cout << "Car Name : " << carInfo.name<<endl;
+	cout << "Car Model : " << carInfo.model<<endl;
+	cout << "Car Year : " << carInfo.year<<endl;
+	cout << "Car Price : " << carInfo.price<<" $ " << endl;
+	cout << "**********************************************\n";
+}
+void printAllCars(strCar cars[3]) {
+	printCar(cars[0]);
+	printCar(cars[1]);
+	printCar(cars[2]);
+}
+void getModernCar(strCar cars[3]) {
+
+
+	if(cars[0].year>cars[1].year& cars[0].year > cars[2].year) {
+		cout << "The modern car is " << cars[0].year;
+	
+	}
+	else if (cars[1].year > cars[0].year & cars[1].year > cars[2].year) {
+		cout << "The modern car is " << cars[1].year;
+	}
+	else {
+		cout << "The modern car is " << cars[2].year;
+	}
+
+
+
+}
+
+int main() {
+	strCar cars[3];
+	readAllCars(cars);
+	printAllCars(cars);
+	getModernCar(cars);
+
+
+
+
+	return 0;
+}
